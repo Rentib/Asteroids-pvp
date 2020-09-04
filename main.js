@@ -12,8 +12,13 @@ function setup(){
 	ship2 = new Ship();
 	ship2.blue = 250;
 	ship2.pos.add(przesun.mult(-1));
-	for(var i = 0;i < k / 100;i++){
+	while(asteroids.length < k / 100){
 		asteroids.push(new Asteroid());
+		var index = asteroids.length - 1;
+		var d = dist(ship.pos.x, ship.pos.y, asteroids[index].pos.x, asteroids[index].pos.y);
+		d = min(d, dist(ship2.pos.x, ship2.pos.y, asteroids[index].pos.x, asteroids[index].pos.y));
+		if(d < 50)
+			asteroids.splice(index, 1);
 	}
 }
 function draw(){
