@@ -17,7 +17,7 @@ function setup(){
 		var index = asteroids.length - 1;
 		var d = dist(ship.pos.x, ship.pos.y, asteroids[index].pos.x, asteroids[index].pos.y);
 		d = min(d, dist(ship2.pos.x, ship2.pos.y, asteroids[index].pos.x, asteroids[index].pos.y));
-		if(d < 50)
+		if(d < 100)
 			asteroids.splice(index, 1);
 	}
 }
@@ -64,6 +64,13 @@ function draw(){
 		for(var j = 0;j < lasers.length;j++){
 			if(asteroids[i].collision(lasers[j])){
 				lasers.splice(j, 1);
+				splitAsteroid(asteroids[i], i);
+				return;
+			}
+		}
+		for(var j = 0;j < lasers2.length;j++){
+			if(asteroids[i].collision(lasers2[j])){
+				lasers2.splice(j, 1);
 				splitAsteroid(asteroids[i], i);
 				return;
 			}
