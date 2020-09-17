@@ -88,7 +88,7 @@ function keyPressed(){
 	}
 	if(keyCode === UP_ARROW)
 		ship.isBoosting = 1;
-	if(keyCode === DOWN_ARROW){
+	if(keyCode === DOWN_ARROW || key == 'm'){
 		lasers.push(new Laser(ship));
 		lasers[lasers.length - 1].red = 250;
 	}
@@ -104,7 +104,7 @@ function keyPressed(){
 	}
 	if(key == 'w')
 		ship2.isBoosting = 1;
-	if(key == 's'){
+	if(key == 's' || key == 'q'){
 		lasers2.push(new Laser(ship2));
 		lasers2[lasers2.length - 1].blue = 250;
 	}
